@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
-  resources :tasks
+  #tasksのアクション実装については要検討
+  resources :tasks #, only: [:show, :new, :create]
   resources :users, only: [:index, :show, :new, :create]
 end

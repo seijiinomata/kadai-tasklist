@@ -1,8 +1,5 @@
-<!--
-<h1>タスク一覧</h1>
-
-<% if @tasks.any? %>
-
+<div class="col-sm-offset-3 col-md-offset-3 col-lg-offset-5 ">
+  
   <table class="table table-striped">
     <thead>
       <tr>
@@ -12,9 +9,8 @@
       </tr>
     </thead>
     <tbody>
-      
-      <% @tasks.each do |task| %>
-
+      <% tasks.each do |task| %>
+      <% user = task.user %>
         <tr>
           <td>
             <%= link_to task.id, task %>
@@ -26,13 +22,11 @@
             <%= task.content %>
           </td>
         </tr>
-      
       <% end %>
 
     </tbody>
   </table>
-<% end %>
+  
+<%= paginate tasks %>
 
-
-<%= link_to '新規タスクの投稿', new_task_path, class: "btn btn-primary" %>
--->
+</div>
